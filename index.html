@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Untuk Kamu ❤️</title>
+
+<style>
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    font-family:Arial,sans-serif;
+    overflow:hidden;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    width:90%;
+    max-width:500px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+
+h1{
+    color:#ff4d6d;
+}
+
+button{
+    padding:12px 20px;
+    margin:10px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+#btn{
+    background:#ff4d6d;
+    color:white;
+}
+
+#pesan{
+    margin-top:20px;
+    font-size:18px;
+    line-height:1.6;
+}
+
+.heart{
+    position:absolute;
+    font-size:20px;
+    animation:jatuh 6s linear infinite;
+}
+
+@keyframes jatuh{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(100vh);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="card">
+    <h1>Hai Kamu ❤️</h1>
+
+    <p>
+        Sebelum lanjut, aku cuma mau bilang...
+    </p>
+
+    <button id="btn" onclick="kejutan()">
+        Klik Aku ✨
+    </button>
+
+    <div id="pesan"></div>
+</div>
+
+<script>
+const pesan = [
+"Kalau hari ini berat, nggak apa-apa kok. 🫂",
+"Ingat ya, kamu lebih kuat dari yang kamu kira. ✨",
+"Senyummu itu cantik, jangan disembunyikan terus. 😊",
+"Minum air dulu, tarik napas, dan santai sebentar. 🌸",
+"Aku cuma mau bilang: kamu hebat hari ini. ❤️"
+];
+
+function kejutan(){
+    let random = pesan[Math.floor(Math.random()*pesan.length)];
+    document.getElementById("pesan").innerHTML = random;
+}
+
+function hati(){
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random()*100 + "vw";
+    document.body.appendChild(h);
+
+    setTimeout(()=>{
+        h.remove();
+    },6000);
+}
+
+setInterval(hati,400);
+</script>
+
+</body>
+</html>
